@@ -1,7 +1,3 @@
-// POV-Ray 3.7 Scene File "Round_Bottom_Mace_1demo.pov"
-// author: Friedrich A. Lohmueller, May-2014
-// email: Friedrich.Lohmueller_at_t-online.de
-// homepage: http://www.f-lohmueller.de
 //--------------------------------------------------------------------------
 #version 3.7
 global_settings{ assumed_gamma 1.0 }
@@ -22,12 +18,12 @@ global_settings{ assumed_gamma 1.0 }
 //--------------------------------------------------------------------------------------------------------<<<<
 //--------------------------------------------------------------------------------------------------------<<<<
 //------------------------------------------------------------- Camera_Position, Camera_look_at, Camera_Angle
-#declare Camera_Number = 1 ;
+#declare Camera_Number = 0 ;
 //--------------------------------------------------------------------------------------------------------<<<<
 //--------------------------------------------------------------------------------------------------------<<<<
 #switch ( Camera_Number )
 #case (0)
-  #declare Camera_Position = < 0.00, 0.20,-2.00> ;  // front view
+  #declare Camera_Position = < 0.00, 0.0,-1.00> ;  // front view
   #declare Camera_Look_At  = < 0.00, 0.20,  0.00> ;
   #declare Camera_Angle    =  35 ;
 #break
@@ -164,32 +160,15 @@ plane { <0,1,0>, 0    // plane with layered textures
 //---------------------------- objects in scene ----------------------------
 //--------------------------------------------------------------------------
 
-//--------------------------------------------------------------------------------
-//--------------------------------------------------------------------------------
 
-//---------------------------------------------------------------------------------
-//---------------------------------------------------------------------------------
-#declare D = 0.000001;
-#declare Glass_D = 0.004*1;
-#declare Neck_Fillet =  0.240*1; // > 0 !!!  Curva de la boca
-#declare Bowl_Radius = 0.070*1;
-#declare Neck_Radius = 0.016*1;  
-#declare Neck_Length = 0.050*1;        //  Longitud de la boca
-//---------------------------------
-#include "jarron.inc" 
-//---------------------------------
-object{ Round_Bottom_Mace_1 (     //  A round-bottom flask shape 
-                // declares: Total_Height_of_Mace
-                Neck_Fillet, // > 0 // neck base fillet // Hohlkehle 
-                Bowl_Radius, // base bowl radius
-                Neck_Radius, // neck radius
-                Neck_Length, // 0=non; neck linear length 
-                1, //   1 for transparent materials, else: 0 
-              ) //-----------------------------------------------------------------
-        texture{ Glass  }  
-        scale <1,1,1>*1
-        rotate<0,0,0> 
-        translate<0.00,0.05, 0.00>
-} // end of object
-//----------------------------------------------------------------------------------
-//----------------------------------------------------------------------------------
+
+#include "jarronFinal.inc" 
+                                            
+object {      
+     jarron
+     scale <1,1,1>*1
+     rotate<0,0,0> 
+     translate<0.00,0.00, 0.00>
+}
+
+
