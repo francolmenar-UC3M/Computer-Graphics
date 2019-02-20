@@ -18,7 +18,7 @@ global_settings{ assumed_gamma 1.0 }
 //--------------------------------------------------------------------------------------------------------<<<<
 //--------------------------------------------------------------------------------------------------------<<<<
 //------------------------------------------------------------- Camera_Position, Camera_look_at, Camera_Angle
-#declare Camera_Number = 0 ;
+#declare Camera_Number = 1 ;
 //--------------------------------------------------------------------------------------------------------<<<<
 //--------------------------------------------------------------------------------------------------------<<<<
 #switch ( Camera_Number )
@@ -160,15 +160,25 @@ plane { <0,1,0>, 0    // plane with layered textures
 //---------------------------- objects in scene ----------------------------
 //--------------------------------------------------------------------------
 
+object  {
+    difference{       
+            cylinder { 
+            <0, 0, 0>,     // Center of one end
+            <0, 0.12, 0>,     // Center of other end
+            0.04            // Radius
+            open           // Remove end caps
 
+        
+        }
+        torus { 
+            0.04, 0.01    // major and minor radius 
+            translate<0,0.032,0> 
+            scale<1,4,1>  
+        }        
 
-#include "jarronFinal.inc" 
-                                            
-object {      
-     jarron
-     scale <1,1,1>*1
-     rotate<0,0,0> 
-     translate<0.00,0.00, 0.00>
+     } // End intersection    
+         pigment { BrightGold }
 }
+
 
 
