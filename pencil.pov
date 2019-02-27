@@ -24,8 +24,8 @@ global_settings{ assumed_gamma 1.0 }
                             location  <0.0 , 1.0 ,-40.0>
                             right     x*image_width/image_height
                             look_at   <0.0 , 1.0 , 0.0>}
-#declare Camera_1 = camera {/*ultra_wide_angle*/ angle 14   // diagonal view
-                            location  <20.0 , 15.0 ,-55.0>
+#declare Camera_1 = camera {/*ultra_wide_angle*/ angle 30   // diagonal view
+                            location  <0.0 , 15.0 ,-30.0>
                             right     x*image_width/image_height
                             look_at   <0.0 , 1 , 0.0>}
 #declare Camera_2 = camera {/*ultra_wide_angle*/ angle 90  //right side view
@@ -36,7 +36,7 @@ global_settings{ assumed_gamma 1.0 }
                             location  <0.0 , 3.0 ,-0.001>
                             right     x*image_width/image_height
                             look_at   <0.0 , 1.0 , 0.0>}
-camera{Camera_1}
+camera{Camera_0}
 //------------------------------------------------------------------------
 // sun -------------------------------------------------------------------
 light_source{<1500,2500,-2500> color White}
@@ -140,6 +140,25 @@ object
 {
         pencil
         scale 0.05 // to get in cms
-        rotate <0, 0, 0>  
-        translate<0,3,0>
+        rotate <0, 0, 70>  
+        translate<0,5,0>
 }
+   
+object
+{
+        pencil
+        scale 0.05 // to get in cms
+        rotate <0, -4, 65>  
+        translate<0,5,00.5>
+}    
+
+object
+{
+        pencil
+        scale 0.05 // to get in cms
+        rotate <20, 210, -70>  
+        translate<0,5,01.5>
+}   
+
+
+
