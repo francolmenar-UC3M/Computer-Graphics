@@ -21,7 +21,34 @@ global_settings{ assumed_gamma 1.0 }
 #declare Neck_Fillet =  0.240*1; // > 0 !!!  Curva de la boca
 #declare Bowl_Radius = 0.070*1;
 #declare Neck_Radius = 0.016*1;  
-#declare Neck_Length = 0.050*1; //  Longitud de la boca
+#declare Neck_Length = 0.050*1; //  Longitud de la boca    
+
+#declare texturaRojaJarron =  
+    texture {
+        pigment {color rgbt<0.7,0,0,0.47>}
+        finish { specular 0.05
+                 phong_size 100
+                 phong 0.3
+                 reflection 0.05
+                 }
+     } 
+
+#declare texturaBaseJarron = 
+texture {
+        Glass3 
+        finish { 
+            specular 0.1}  
+        }
+
+#declare intertiorBase = 
+    interior {ior 1
+                caustics 1
+                dispersion 0.8
+                dispersion_samples 3
+                fade_distance 1
+                fade_power 1
+                fade_color <0.8,0.8,0.8> }
+    
 
 
 #declare jarron  = 
@@ -32,22 +59,8 @@ global_settings{ assumed_gamma 1.0 }
                     Neck_Radius, // neck radius
                     Neck_Length, // 0=non; neck linear length 
                     1, //   1 for transparent materials, else: 0 
-                  )
-            texture
-                {
-                pigment
-                {
-                 color rgbt<0.7,0,0,0.6>
-                }
-               finish
-                {
-                specular 0.3
-                phong_size 100
-                phong 0.3
-                reflection 0.1
-                }
-            }
- // Textura del jarrón de arriba 
+                  )  
+                texture { texturaRojaJarron } // Textura del jarrón de arriba           
             translate<0.00,0.08, 0.00>
     } // end of jarron               
             // Base del Jarron
@@ -60,7 +73,7 @@ global_settings{ assumed_gamma 1.0 }
                                     0, 
                                     1,
                                   ) 
-                            translate<0.00,0.05, 0.00>
+                            translate<0.00,0.06, 0.00>
                     } // end of object            
                     object{ Round_Bottom_Mace_1 (   
                                     Neck_Fillet,
@@ -70,10 +83,12 @@ global_settings{ assumed_gamma 1.0 }
                                     1, 
                                   ) 
                             translate<0.00,0.08, 0.00>
-                    } // end of object  
+                    } // end of object
+                    scale <0.8,0.6,0.8>  
                  } // end of difference 
                  plane { y, 0.01 }// Plano que corta la base por abajo
-               texture{ Glass  } // Textura de la base   
+               texture{ texturaBaseJarron  } // Textura de la base    
+               interior {intertiorBase}
               } // end of difference    
       translate<0.00, -0.008, 0.00>
     }  // end of union     
