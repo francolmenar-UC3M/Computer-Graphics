@@ -14,7 +14,7 @@ global_settings{ assumed_gamma 1.0 }
 #include "functions.inc"
 #include "math.inc"
 #include "transforms.inc"     
-#include "jarron.inc" 
+#include "../objects/jarron.inc" 
                           
 #declare D = 0.000001;
 #declare Glass_D = 0.004*1;
