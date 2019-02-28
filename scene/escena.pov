@@ -15,43 +15,24 @@ global_settings{ assumed_gamma 1.0 }
 #include "functions.inc"
 #include "math.inc"
 #include "transforms.inc" 
-#include "jarronFinal.inc" 
+#include "../objects/jarronFinal.inc" 
 
 //--------------------------------------------------------------------------------------------------------<<<<
 //--------------------------------------------------------------------------------------------------------<<<<
 //------------------------------------------------------------- Camera_Position, Camera_look_at, Camera_Angle
-#declare Camera_Number = 5 ;
+#declare Camera_Number = 0 ;
 //--------------------------------------------------------------------------------------------------------<<<<
 //--------------------------------------------------------------------------------------------------------<<<<
 #switch ( Camera_Number )
 #case (0)
-  #declare Camera_Position = < 0.00, 0.0,-1.00> ;  // front view
-  #declare Camera_Look_At  = < 0.00, 0.20,  0.00> ;
-  #declare Camera_Angle    =  35 ;
-#break
-#case (1)
-  #declare Camera_Position = < 0.50, 0.30, -0.30>  ;  // diagonal view
-  #declare Camera_Look_At  = < 0.00, 0.18,  0.00>  ;
-  #declare Camera_Angle    =  55 ;
-#break
-#case (2)
-  #declare Camera_Position = < 2.00, 0.20, -0.001> ;  // right side view
-  #declare Camera_Look_At  = < 0.00, 0.20,  0.00> ;
-  #declare Camera_Angle    =  25 ;
-#break
-#case (3)
-  #declare Camera_Position = < 1, 3,-145> ;  // front upper view
-  #declare Camera_Look_At  = < 0, 3,  1.15> ;
-  #declare Camera_Angle    =  00 ;
-#case (4)
-  #declare Camera_Position = < 1.5, 50,-75> ;  // front upper view
-  #declare Camera_Look_At  = < 1.5, 7,  1.15> ;
-  #declare Camera_Angle    =  00 ;
+  #declare Camera_Position = < 1, 20,-50.00> ;  // front close view
+  #declare Camera_Look_At  = < 1, 20,  1.00> ;
+  #declare Camera_Angle    =  0 ;
 #break 
-#case (5)
-  #declare Camera_Position = < 1.5, 3,-145> ;  // front upper view
+#case (1)
+  #declare Camera_Position = < 1.5, 3,-145> ;  // front far view
   #declare Camera_Look_At  = < 1.5, 3,  1.15> ;
-  #declare Camera_Angle    =  00 ;
+  #declare Camera_Angle    =  0 ;
 #break
 #else
   #declare Camera_Position = < 0.00, 0.20,-2.00> ;  // front view
