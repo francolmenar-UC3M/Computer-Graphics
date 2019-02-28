@@ -33,7 +33,21 @@ global_settings{ assumed_gamma 1.0 }
                     Neck_Length, // 0=non; neck linear length 
                     1, //   1 for transparent materials, else: 0 
                   )
-            texture{ Glass  } // Textura del jarrón de arriba 
+            texture
+                {
+                pigment
+                {
+                 color rgbt<0.7,0,0,0.6>
+                }
+               finish
+                {
+                specular 0.3
+                phong_size 100
+                phong 0.3
+                reflection 0.1
+                }
+            }
+ // Textura del jarrón de arriba 
             translate<0.00,0.08, 0.00>
     } // end of jarron               
             // Base del Jarron
