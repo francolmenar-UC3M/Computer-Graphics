@@ -20,16 +20,21 @@ global_settings{ assumed_gamma 1.0 }
 //--------------------------------------------------------------------------------------------------------<<<<
 //--------------------------------------------------------------------------------------------------------<<<<
 //------------------------------------------------------------- Camera_Position, Camera_look_at, Camera_Angle
-#declare Camera_Number = 0 ;
+#declare Camera_Number = 1 ;
 //--------------------------------------------------------------------------------------------------------<<<<
 //--------------------------------------------------------------------------------------------------------<<<<
 #switch ( Camera_Number )
 #case (0)
-  #declare Camera_Position = < 1, 20,-50.00> ;  // front close view
-  #declare Camera_Look_At  = < 1, 20,  1.00> ;
+  #declare Camera_Position = < 1, 15,-50.00> ;  // front close view
+  #declare Camera_Look_At  = < 1, 15,  1.00> ;
+  #declare Camera_Angle    =  0 ;
+#break   
+#case (1)
+  #declare Camera_Position = < 1, 15,-80.00> ;  // front view
+  #declare Camera_Look_At  = < 1, 15,  1.00> ;
   #declare Camera_Angle    =  0 ;
 #break 
-#case (1)
+#case (2)
   #declare Camera_Position = < 1.5, 3,-145> ;  // front far view
   #declare Camera_Look_At  = < 1.5, 3,  1.15> ;
   #declare Camera_Angle    =  0 ;
@@ -49,7 +54,7 @@ camera{ location Camera_Position
 //------------------------------------------------------------------------------------------------------<<<<<
 //------------------------------------------------------------------------
 // sun -------------------------------------------------------------------
-light_source{< 500,3500,-2500> color White*0.9}
+light_source{< 1400,3500,-2500> color White*0.9}
 light_source{ Camera_Position  color rgb<0.9,0.9,1>*0.1} 
 // sky -------------------------------------------------------------------
 sky_sphere{ pigment{ gradient <0,1,0>
