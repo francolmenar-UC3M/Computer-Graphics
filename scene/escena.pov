@@ -20,7 +20,7 @@ global_settings{ assumed_gamma 1.0 }
 //--------------------------------------------------------------------------------------------------------<<<<
 //--------------------------------------------------------------------------------------------------------<<<<
 //------------------------------------------------------------- Camera_Position, Camera_look_at, Camera_Angle
-#declare Camera_Number = 1 ;
+#declare Camera_Number =  1;
 //--------------------------------------------------------------------------------------------------------<<<<
 //--------------------------------------------------------------------------------------------------------<<<<
 #switch ( Camera_Number )
@@ -30,13 +30,18 @@ global_settings{ assumed_gamma 1.0 }
   #declare Camera_Angle    =  0 ;
 #break   
 #case (1)
-  #declare Camera_Position = < 1, 15,-80.00> ;  // front view
-  #declare Camera_Look_At  = < 1, 15,  1.00> ;
+  #declare Camera_Position = < 0, 15,-70.00> ;  // front view
+  #declare Camera_Look_At  = < 0, 15,  1.00> ;
   #declare Camera_Angle    =  0 ;
 #break 
 #case (2)
   #declare Camera_Position = < 1.5, 3,-145> ;  // front far view
   #declare Camera_Look_At  = < 1.5, 3,  1.15> ;
+  #declare Camera_Angle    =  0 ;
+#break 
+#case (3)
+  #declare Camera_Position = < 10, 0,-30.00> ;  // Vista para la base del jarron
+  #declare Camera_Look_At  = < 10, 0,  1.00> ;
   #declare Camera_Angle    =  0 ;
 #break
 #else
@@ -54,7 +59,7 @@ camera{ location Camera_Position
 //------------------------------------------------------------------------------------------------------<<<<<
 //------------------------------------------------------------------------
 // sun -------------------------------------------------------------------
-light_source{< 1400,3500,-2500> color White*0.9}
+light_source{< 2000,3500,-2500> color White*0.9}
 light_source{ Camera_Position  color rgb<0.9,0.9,1>*0.1} 
 // sky -------------------------------------------------------------------
 sky_sphere{ pigment{ gradient <0,1,0>
@@ -110,13 +115,16 @@ fog { fog_type   2
 
 
 plane { <0,1,0>, 0    // plane with layered textures
-        texture { NBglass pigment { color rgb <1,1,1>}}
+        texture { NBglass pigment { color rgb <0.9,0.9,0.9>}}
         
-        finish{phong 1}
+        finish{phong 1
+         diffuse 0.35}
       }                
       
 plane {<0,0,1> 70
-        texture{NBglass pigment {color rgb<1,1,1>}}
+        texture{ pigment {color rgb<0.85,0.85,0.85>}} 
+         finish{
+         diffuse 1.05}
         }
 //------------------------------------------------ end of squared plane XZ
 
