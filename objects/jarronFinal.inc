@@ -25,19 +25,23 @@ global_settings{ assumed_gamma 1.0 }
 
 #declare texturaRojaJarron =  
     texture {
-        pigment {color rgbt<0.7,0,0,0.47>}
-        finish { specular 0.05
-                 phong_size 100
-                 phong 0.3
-                 reflection 0.05
+        pigment {color rgbt<0.7,0,0,0.2>}
+        finish { specular 0.13
+                 phong_size 50
+                 phong 0.05
+                 reflection 0.01
+                 diffuse 0.78
+                 ambient 0.09
                  }
      } 
 
 #declare texturaBaseJarron = 
 texture {
-        Glass3 
+        Glass3  
+        pigment {color rgbt<1,1,1,1>}
         finish { 
-            specular 0.1}  
+            specular 0.1
+            diffuse 0.9}  
         }
 
 #declare intertiorBase = 
@@ -86,10 +90,10 @@ texture {
                     } // end of object
                     scale <0.8,0.6,0.8>  
                  } // end of difference 
-                 plane { y, 0.01 }// Plano que corta la base por abajo
+                 plane { y, 0.03 }// Plano que corta la base por abajo
                texture{ texturaBaseJarron  } // Textura de la base    
                interior {intertiorBase}
               } // end of difference    
-      translate<0.00, -0.008, 0.00>
+      translate<0.00, -0.03, 0.00>
     }  // end of union     
 
