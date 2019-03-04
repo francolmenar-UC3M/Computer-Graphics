@@ -25,8 +25,8 @@ global_settings{ assumed_gamma 1.0 }
 
 #declare texturaRojaJarron =  
     texture {
-        pigment {color rgbt<0.7,0,0,0.2>}
-        finish { specular 0.13
+        pigment {color rgbt<0.7,0,0,0.3>}
+        finish { specular 0.3
                  phong_size 50
                  phong 0.05
                  reflection 0.01
