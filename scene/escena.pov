@@ -6,27 +6,21 @@ global_settings{ assumed_gamma 1.0 }
 #include "colors.inc"
 #include "textures.inc"
 #include "glass.inc"
-#include "metals.inc"
-#include "golds.inc"
-#include "stones.inc"
-#include "woods.inc"
 #include "shapes.inc"
 #include "shapes2.inc"
-#include "functions.inc"
-#include "math.inc"
 #include "transforms.inc" 
 #include "../objects/jarronFinal.inc" 
 
 //--------------------------------------------------------------------------------------------------------<<<<
 //--------------------------------------------------------------------------------------------------------<<<<
 //------------------------------------------------------------- Camera_Position, Camera_look_at, Camera_Angle
-#declare Camera_Number =  1;
+#declare Camera_Number =  2;
 //--------------------------------------------------------------------------------------------------------<<<<
 //--------------------------------------------------------------------------------------------------------<<<<
 #switch ( Camera_Number )
 #case (0)
-  #declare Camera_Position = < 1, 15,-50.00> ;  // front close view
-  #declare Camera_Look_At  = < 1, 15,  1.00> ;
+  #declare Camera_Position = < 1, 20,-50.00> ;  // front close view
+  #declare Camera_Look_At  = < 1, 20,  1.00> ;
   #declare Camera_Angle    =  0 ;
 #break   
 #case (1)
@@ -40,8 +34,18 @@ global_settings{ assumed_gamma 1.0 }
   #declare Camera_Angle    =  0 ;
 #break 
 #case (3)
+  #declare Camera_Position = < 1.5, 6,-170> ;  // front far far view
+  #declare Camera_Look_At  = < 1.5, 60,  1.15> ;
+  #declare Camera_Angle    =  0 ;
+#break     
+#case (4)
   #declare Camera_Position = < 10, 0,-30.00> ;  // Vista para la base del jarron
   #declare Camera_Look_At  = < 10, 0,  1.00> ;
+  #declare Camera_Angle    =  0 ;
+#break     
+#case (5)
+  #declare Camera_Position = < 80, 10,20.00> ;  // Vista desde el lado
+  #declare Camera_Look_At  = < 0, 10,  0.00> ;
   #declare Camera_Angle    =  0 ;
 #break
 #else
@@ -60,7 +64,7 @@ camera{ location Camera_Position
 //------------------------------------------------------------------------
 // sun -------------------------------------------------------------------
 light_source{< 2000,3500,-2500> color White*0.9}
-light_source{ Camera_Position  color rgb<0.9,0.9,1>*0.1} 
+
 // sky -------------------------------------------------------------------
 sky_sphere{ pigment{ gradient <0,1,0>
                      color_map{ [0   color rgb<1,1,1>*0.6         ]//White
@@ -70,48 +74,7 @@ sky_sphere{ pigment{ gradient <0,1,0>
                               }
                      scale 2 }
            } // end of sky_sphere
-//------------------------------------------------------------------------
- 
-fog { fog_type   2
-      distance   2
-      color     White*0.6 // rgb<1,0.89,0.7>*0.9  
-      fog_offset 0.0
-      fog_alt    0.1
-      turbulence 1.8
-    }
- 
-
-//------------------------------------------------------------------------
-
-#declare Texture_A_Dark  = texture {
-                               pigment{ color rgb<1,0.45,0>}
-                               finish { phong 1}
-                             }
-#declare Texture_A_Light = texture {
-                               pigment{ color rgb<1,1,1>}
-                               finish { phong 1}
-                             }
-
-
-//-------------------------------------------------- end of coordinate axes
-
-
-// ground -----------------------------------------------------------------
-//---------------------------------<<< settings of squared plane dimensions
-#declare RasterScale = 0.05;
-#declare RasterHalfLine  = 0.025;
-#declare RasterHalfLineZ = 0.025;
-//-------------------------------------------------------------------------
-#macro Raster(RScale, HLine)
-       pigment{ gradient x scale RScale
-                color_map{[0.000   color rgbt<1,1,1,0>*0.6]
-                          [0+HLine color rgbt<1,1,1,0>*0.6]
-                          [0+HLine color rgbt<1,1,1,1>]
-                          [1-HLine color rgbt<1,1,1,1>]
-                          [1-HLine color rgbt<1,1,1,0>*0.6]
-                          [1.000   color rgbt<1,1,1,0>*0.6]} }
- #end// of Raster(RScale, HLine)-macro
-//-------------------------------------------------------------------------
+//-----------------------------------------------------------------------
 
 
 plane { <0,1,0>, 0    // plane with layered textures
@@ -121,12 +84,17 @@ plane { <0,1,0>, 0    // plane with layered textures
          diffuse 0.35}
       }                
       
-plane {<0,0,1> 70
-        texture{ pigment {color rgb<0.85,0.85,0.85>}} 
+
+#declare ancho_pared = 80;  
+#declare alto_pared = 130;
+#declare profundidad_pared = 50;  
+    
+box {  // Pared
+     <-ancho_pared, 0,profundidad_pared>, <ancho_pared, alto_pared, profundidad_pared + 0.01>  
+     texture{ pigment {color rgb<0.85,0.85,0.85>}} 
          finish{
-         diffuse 1.05}
-        }
-//------------------------------------------------ end of squared plane XZ
+         diffuse 1.05}      
+    }
 
 //--------------------------------------------------------------------------
 //---------------------------- objects in scene ----------------------------
