@@ -9,12 +9,14 @@ global_settings{ assumed_gamma 1.0 }
 #include "shapes.inc"
 #include "shapes2.inc"
 #include "transforms.inc" 
-#include "../objects/jarronFinal.inc" 
+#include "../objects/jarronFinal.inc"  
+#include "../objects/pencil_glass.inc" 
+#include "../objects/box_balls.inc" 
 
 //--------------------------------------------------------------------------------------------------------<<<<
 //--------------------------------------------------------------------------------------------------------<<<<
 //------------------------------------------------------------- Camera_Position, Camera_look_at, Camera_Angle
-#declare Camera_Number =  2;
+#declare Camera_Number =  1;
 //--------------------------------------------------------------------------------------------------------<<<<
 //--------------------------------------------------------------------------------------------------------<<<<
 #switch ( Camera_Number )
@@ -49,7 +51,7 @@ global_settings{ assumed_gamma 1.0 }
   #declare Camera_Angle    =  0 ;
 #break
 #else
-  #declare Camera_Position = < 0.00, 0.20,-2.00> ;  // front view
+  #declare Camera_Position = < 0.00, 100.20,-2.00> ;  // front view
   #declare Camera_Look_At  = < 0.00, 0.20,  0.00> ;
   #declare Camera_Angle    =  35 ;
 #break
@@ -108,5 +110,19 @@ object {
     jarron
     scale scaleVector 
     rotate zeroVector
-    translate <10.00,0.00,0.00>
+    translate <15.00,0.00,0.00>
 }
+
+object {
+    pencilGlass
+    scale 4
+    translate <-5, 5, 0> 
+    rotate <0, 285, 0>
+}
+
+object {
+    box_balls
+    scale 5
+    translate <1, 0, -15> 
+    rotate <0, 60, 0>
+}       
