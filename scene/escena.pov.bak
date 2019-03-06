@@ -92,14 +92,14 @@ object { // Bottle
     translate <15.00,0.00,0.00>
 }
 
-object { //Glass of pencils
+object {
     pencilGlass
     scale 4
     translate <-5, 5, 0> 
     rotate <0, 285, 0>
 }
 
-object { //Box of balls
+object {
     box_balls
     scale 5
     translate <1, 0, -15> 

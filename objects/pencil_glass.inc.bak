@@ -15,9 +15,7 @@ global_settings{ assumed_gamma 1.0 }
 #include "math.inc"
 #include "transforms.inc" 
 #include "../objects/pencil.inc" 
-  
-  
-//This sor declaration is used to obtain the glass that will contain the pencils, that's why it is open.  
+
 #declare Glass =  union{
     sor {
      7,
@@ -35,7 +33,6 @@ global_settings{ assumed_gamma 1.0 }
 
 } 
 
-//Each pencil has to be setted using a specific position and rotation.
 #declare pencilGlass = union{
 object
 {

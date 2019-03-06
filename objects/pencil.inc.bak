@@ -3,10 +3,8 @@
 #include "woods.inc"
 #include "metals.inc"
  
-//This is the only object for which we look in internet, we found it at http://objects.povworld.org/cat/Tools/Writing/
-//However we take waya some declaration that were unuseful for us.
  
- //texture of the pencil, this will make the pencil look as a wood pencil
+ //texture of the pencil
 #declare pencil_wood_texture = texture
 {
     T_Wood35
@@ -24,13 +22,12 @@
     translate -3*x
 }
 
-//Box we will use later for the body of the pencil
 #declare pencil_clipping_box = box
 {
     <-100,0,0>, <100, 10, 10>
 }
  //Here we make the difference between a box and some boxes set in diferent positions respect axe x so we can 
- //obtain the final form of the pencil body as it must be an hexagon
+ //obtain the final form of the pencil body as it mjust be an hexagon
 #declare pencil_hexagon = difference
 {
     box
@@ -87,7 +84,7 @@
 {
     <-80,0,0>, <80,0,0>, 1.5
 }
-//This is for seting the text in the pencil, we leave the one cames with the code
+//This is for seting the text inthe pencil, we leave the one cames with the code
 #declare pencil_text = text
 {
     ttf "arial.ttf"
@@ -175,7 +172,7 @@
     }
 }
 
-//This si used to attach the already written text we want into the pencil
+//This si sued to attach the already written text we want into the pencil
 
 #declare pencil_sleeve = difference
 {
