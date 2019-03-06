@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<terragen_clip>
+
+	
+<non_node>
+
+
+
+
+
+<clip_category type="Atmosphere"/><library_description>nubes</library_description><clip_input_connection node="Cirrus layer 01" param="input_node"/><clip_output_connection node="Cirrus layer 01" index="0"/><library_connection_tips/></non_node><cloud_layer_v2 name="Cirrus layer 01" gui_use_node_pos="1" gui_node_pos="0 580 0" gui_group="Atmosphere" enable="1" input_node="/Atmosphere 01" gui_use_preview_patch_size="0" gui_preview_patch_size="1000 1000" enable_primary="1" enable_secondary="1" move_textures_with_cloud="0" centre="0 -6378000 0" radius="6378000" seed="0" cloud_altitude="12707" cloud_depth="10" local_sphere="0" local_sphere_centre="0 12707 0" local_sphere_radius="10000" local_sphere_falloff="1" local_sphere_value_at_radius="-0.5" density_shader="Density fractal 01" edge_sharpness="1" cloud_density="0.01" coverage_adjust="0" cloud_colour="0.25 0.25 0.25" scattering_colour="0.25 0.25 0.25" sun_glow_amount="1" sun_glow_power="1" light_propagation="2" light_propagation_mix="0.125" fake_internal_scattering="2" enviro_light="1" enviro_light_tint="1 1 1" darker_unresolved_scattering="1" anisotropic_enviro_light="1" altitude_offset_function="" altitude_offset_multiplier="1" depth_modulator="" depth_modulator_centre="0" final_density_modulator="" direct_light_modulator="" enviro_light_modulator="" ambient_light_modulator="" shadow_function="" ambient="0 0 0" fake_dark_power="0" fake_dark_sharpness="10" improved_lighting_model="1" taper_top_and_base="1" flatter_base="0" base_wispiness="0" base_softness="0" invert_profile="0" coverage_gamma="1" rendering_method="0" quality="0.5104784277" number_of_samples="5" sample_jitter="1" step_optimisation="0" enable_ray_traced_shadows="0" acceleration_cache="0" use_2D_shadow_map="0" shadow_map_resolution="200 200" shadow_map_blur_radius="2 2" use_voxel_buffer="0" voxel_buffer_resolution="100 20 100" use_voxels_to_accelerate_empty_space="1" visualise_voxels="0" use_voxels_for_shadows="1" voxel_shadow_threshold="4">
+	</cloud_layer_v2></terragen_clip>
