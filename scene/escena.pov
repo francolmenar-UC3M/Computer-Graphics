@@ -6,12 +6,12 @@ global_settings{ assumed_gamma 1.0 }
 #include "colors.inc"
 #include "textures.inc"
 #include "glass.inc"
-#include "shapes.inc"
-#include "shapes2.inc"
 #include "transforms.inc" 
 #include "../objects/jarronFinal.inc"  
 #include "../objects/pencil_glass.inc" 
-#include "../objects/box_balls.inc" 
+#include "../objects/box_balls.inc"  
+#include "../objects/pared.inc"
+#include "../objects/ground.inc"  
 
 //--------------------------------------------------------------------------------------------------------<<<<
 //--------------------------------------------------------------------------------------------------------<<<<
@@ -41,7 +41,7 @@ global_settings{ assumed_gamma 1.0 }
   #declare Camera_Angle    =  0 ;
 #break     
 #case (4)
-  #declare Camera_Position = < 10, 0,-30.00> ;  // Vista para la base del jarron
+  #declare Camera_Position = < 10, 0,-30.00> ;  //Camera for the base of the bottle
   #declare Camera_Look_At  = < 10, 0,  1.00> ;
   #declare Camera_Angle    =  0 ;
 #break     
@@ -76,40 +76,19 @@ sky_sphere{ pigment{ gradient <0,1,0>
                               }
                      scale 2 }
            } // end of sky_sphere
-//-----------------------------------------------------------------------
-
-
-plane { <0,1,0>, 0    // plane with layered textures
-        texture { NBglass pigment { color rgb <0.9,0.9,0.9>}}
-        
-        finish{phong 1
-         diffuse 0.35}
-      }                
-      
-
-#declare ancho_pared = 80;  
-#declare alto_pared = 130;
-#declare profundidad_pared = 50;  
-    
-box {  // Pared
-     <-ancho_pared, 0,profundidad_pared>, <ancho_pared, alto_pared, profundidad_pared + 0.01>  
-     texture{ pigment {color rgb<0.85,0.85,0.85>}} 
-         finish{
-         diffuse 1.05}      
-    }
-
-//--------------------------------------------------------------------------
+//-----------------------------------------------------------------------                
 //---------------------------- objects in scene ----------------------------
 //--------------------------------------------------------------------------                
 
 #declare scaleConst = 110; // Constants for scaling the objects   
-#declare scaleVector = <scaleConst,scaleConst,scaleConst> *1;
-#declare zeroVector = <0.00,0.00,0.00>;   
+#declare scaleVector = <scaleConst,scaleConst,scaleConst> * 1;                                               
+                                                 
+object { ground } // Ground floor
+object { wall }   // Wall        
 
-object {        
+object { // Bottle       
     jarron
     scale scaleVector 
-    rotate zeroVector
     translate <15.00,0.00,0.00>
 }
 
