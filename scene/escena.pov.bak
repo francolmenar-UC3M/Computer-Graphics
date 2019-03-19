@@ -8,8 +8,7 @@ global_settings{ assumed_gamma 1.0 }
 #include "glass.inc"
 #include "transforms.inc" 
 #include "../objects/ground.inc"       
-#include "../objects/sierpinski.inc" 
-#include "../objects/piramidcone.inc"
+#include "../objects/sierpinski.inc"
 
 //--------------------------------------------------------------------------------------------------------<<<<
 //--------------------------------------------------------------------------------------------------------<<<<
@@ -84,14 +83,8 @@ sky_sphere{ pigment{ gradient <0,1,0>
 object { ground } // Ground floor 
   
 object { sierpinski(2,0, 2)
-          translate <-2, 0, 4> 
+          translate <-2, 0, 7> 
           scale <5, 5, 5>   
           rotate <0, -15, 0>  
           pigment {Blue_Agate}
-          } 
-          
-object{conefractal(2, 0, 3) 
-        translate<-2,2,2>
-        rotate<0, 90,0>
-        scale 4
-        }
+          }
