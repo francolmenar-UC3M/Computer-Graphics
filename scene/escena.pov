@@ -6,7 +6,8 @@ global_settings{ assumed_gamma 1.0 }
 #include "colors.inc"
 #include "textures.inc"
 #include "glass.inc"
-#include "transforms.inc" 
+#include "transforms.inc"   
+#include "extree1.pov" 
 #include "../objects/ground.inc"       
 #include "../objects/sierpinski.inc" 
 #include "../objects/piramidcone.inc"
@@ -19,13 +20,13 @@ global_settings{ assumed_gamma 1.0 }
 //--------------------------------------------------------------------------------------------------------<<<<
 #switch ( Camera_Number )
 #case (0)
-  #declare Camera_Position = < 1, 20,-50.00> ;  // front close view
+  #declare Camera_Position = < 1, 20,-75.00> ;  // front close view
   #declare Camera_Look_At  = < 1, 20,  1.00> ;
   #declare Camera_Angle    =  0 ;
 #break   
 #case (1)
-  #declare Camera_Position = < 0, 5,-20.00> ;  // front view
-  #declare Camera_Look_At  = < 0, 5,  1.00> ;
+  #declare Camera_Position = < 0, 10,-40.00> ;  // front view
+  #declare Camera_Look_At  = < 0, 10,  1.00> ;
   #declare Camera_Angle    =  0 ;
 #break 
 #case (2)
@@ -66,14 +67,42 @@ camera{ location Camera_Position
 light_source{< 2000,3500,-2500> color White*0.9}
 
 // sky -------------------------------------------------------------------
-sky_sphere{ pigment{ gradient <0,1,0>
-                     color_map{ [0   color rgb<1,1,1>*0.6         ]//White
-                                [0.1 color rgb<0.24,0.34,0.56>*0.8]//~Navy
-                                [0.9 color rgb<0.24,0.34,0.56>*0.8]//~Navy
-                                [1.0 color rgb<1,1,1>*0.6         ]//White
-                              }
-                     scale 2 }
-           } // end of sky_sphere
+plane{<0,1,0>,1 hollow  // 
+      
+        texture{ pigment {color rgb<0.1,0.3,0.75>*0.7}
+                 #if (version = 3.7 )  finish {emission 1 diffuse 0}
+                 #else                 finish { ambient 1 diffuse 0}
+                 #end 
+               } // end texture 1
+
+        texture{ pigment{ bozo turbulence 0.75
+                          octaves 6  omega 0.7 lambda 2 
+                          color_map {
+                          [0.0  color rgb <0.95, 0.95, 0.95> ]
+                          [0.05  color rgb <1, 1, 1>*1.25 ]
+                          [0.15 color rgb <0.85, 0.85, 0.85> ]
+                          [0.55 color rgbt <1, 1, 1, 1>*1 ]
+                          [1.0 color rgbt <1, 1, 1, 1>*1 ]
+                          } // end color_map 
+                         translate< 3, 0,-1>
+                         scale <0.3, 0.4, 0.2>*3
+                        } // end pigment
+                 #if (version = 3.7 )  finish {emission 1 diffuse 0}
+                 #else                 finish { ambient 1 diffuse 0}
+                 #end 
+               } // end texture 2
+       scale 10000
+     } //-------------------------------------------------------------
+           
+
+// ground fog at the horizon -----------------------------------------
+fog{ fog_type   2
+     distance   1000
+     color      rgb<1,1,1>*0.9
+     fog_offset 0.1
+     fog_alt    20
+     turbulence 1.8
+   } //--------------------------------------------------------------
 //-----------------------------------------------------------------------                
 //---------------------------- objects in scene ----------------------------
 //--------------------------------------------------------------------------                
@@ -81,7 +110,7 @@ sky_sphere{ pigment{ gradient <0,1,0>
 #declare scaleConst = 110; // Constants for scaling the objects   
 #declare scaleVector = <scaleConst,scaleConst,scaleConst> * 1;                                               
                                                  
-object { ground } // Ground floor 
+
   
 object { sierpinski(2,0, 2)
           translate <-2, 0, 4> 
