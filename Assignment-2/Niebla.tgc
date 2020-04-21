@@ -1,0 +1,28 @@
+<terragen_clip>
+<non_node>
+<clip_category type="Shaders" />
+<clip_input_connection node="Niebla" param="input_node" />
+<clip_output_connection node="Niebla" index="0" />
+</non_node>
+	<distance_shader
+		name = "Niebla"
+		gui_use_node_pos = "1"
+		gui_node_pos = "-920 460 0"
+		gui_group = "Shaders"
+		enable = "1"
+		input_node = "/Cloud fractal shader v3 01"
+		gui_use_preview_patch_size = "0"
+		gui_preview_patch_size = "1000 1000"
+		apply_far_colour = "1"
+		far_colour = "0.5 0.5 0.5"
+		apply_near_colour = "0"
+		near_colour = "0 0 0"
+		far_distance = "25000"
+		near_distance = "0"
+		distance_mode = "0"
+		camera = ""
+		clamp_far_colour = "1"
+		clamp_near_colour = "1"
+		>
+	</distance_shader>
+</terragen_clip>
